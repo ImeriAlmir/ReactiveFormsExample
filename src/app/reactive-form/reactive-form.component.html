@@ -1,33 +1,37 @@
 <form [formGroup]="loginForm">
-    <input formControlName="username" type="text" />
-    <ng-container
-        *ngIf="
-            loginForm.controls['username'].dirty ||
-            loginForm.controls['username'].touched
-        ">
-        <p
-            class="errorMessage"
+    <div class="box">
+        <input formControlName="username" type="text" />
+        <ng-container
             *ngIf="
-                loginForm.controls['username'].errors?.required ||
-                loginForm.controls['username'].errors?.minlength
+                loginForm.controls['username'].dirty ||
+                loginForm.controls['username'].touched
             ">
-            Please enter a valid username
-        </p>
-    </ng-container>
-    <input formControlName="password" type="password" />
-    <ng-container
-        *ngIf="
-            loginForm.controls['password'].dirty ||
-            loginForm.controls['password'].touched
-        ">
-        <p
-            class="errorMessage"
+            <p
+                class="errorMessage"
+                *ngIf="
+                    loginForm.controls['username'].errors?.required ||
+                    loginForm.controls['username'].errors?.minlength
+                ">
+                Please enter a valid username
+            </p>
+        </ng-container>
+    </div>
+    <div class="box">
+        <input formControlName="password" type="password" />
+        <ng-container
             *ngIf="
-                loginForm.controls['password'].errors?.required ||
-                loginForm.controls['password'].errors?.minlength
+                loginForm.controls['password'].dirty ||
+                loginForm.controls['password'].touched
             ">
-            Please enter a valid password
-        </p>
-    </ng-container>
+            <p
+                class="errorMessage"
+                *ngIf="
+                    loginForm.controls['password'].errors?.required ||
+                    loginForm.controls['password'].errors?.minlength
+                ">
+                Please enter a valid password
+            </p>
+        </ng-container>
+    </div>
     <button [disabled]="!loginForm.valid" type="submit">LOGIN</button>
 </form>

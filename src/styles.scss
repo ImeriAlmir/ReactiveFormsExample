@@ -23,22 +23,29 @@ body {
         display: flex;
         flex-direction: column;
 
-        input {
-            padding: 3rem;
-            border-radius: 1rem;
-            color: white;
-            background-color: #0c0c0c;
-            border: none;
-            margin: 0.5rem 0 0 0;
+        .box {
+            display: flex;
+            flex-direction: column;
+            height: 100px;
+            input {
+                padding: 1rem;
+                border-radius: 1rem;
+                color: white;
+                background-color: #0c0c0c;
+                border: none;
+                margin: 0.5rem 0 0 0;
 
-            &.ng-touched,
-            &.ng-dirty {
-                &.ng-invalid {
-                    border: red 1px solid;
-                }
+                &.ng-touched,
+                &.ng-dirty {
+                    &.ng-invalid {
+                        border: red 1px solid;
+                        transition: 0.5s;
+                    }
 
-                &.ng-valid {
-                    border: green 1px solid;
+                    &.ng-valid {
+                        border: green 1px solid;
+                        transition: 0.5s;
+                    }
                 }
             }
         }
@@ -54,12 +61,12 @@ body {
         border: none;
         padding: 2rem;
         border-radius: 1rem;
-        background-color: black;
+        background-color: rgb(0, 54, 90);
         transition: 0.5s;
-
         &:disabled {
-            background-color: rgb(0, 54, 90);
-            transition: 5s;
+            background-color: darkgray;
+            color: lightgray;
+            transition: 0.3s;
         }
     }
 
