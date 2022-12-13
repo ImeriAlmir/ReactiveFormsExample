@@ -1,0 +1,33 @@
+<form [formGroup]="loginForm">
+    <input formControlName="username" type="text" />
+    <ng-container
+        *ngIf="
+            loginForm.controls['username'].dirty ||
+            loginForm.controls['username'].touched
+        ">
+        <p
+            class="errorMessage"
+            *ngIf="
+                loginForm.controls['username'].errors?.required ||
+                loginForm.controls['username'].errors?.minlength
+            ">
+            Please enter a valid username
+        </p>
+    </ng-container>
+    <input formControlName="password" type="password" />
+    <ng-container
+        *ngIf="
+            loginForm.controls['password'].dirty ||
+            loginForm.controls['password'].touched
+        ">
+        <p
+            class="errorMessage"
+            *ngIf="
+                loginForm.controls['password'].errors?.required ||
+                loginForm.controls['password'].errors?.minlength
+            ">
+            Please enter a valid password
+        </p>
+    </ng-container>
+    <button [disabled]="!loginForm.valid" type="submit">LOGIN</button>
+</form>
